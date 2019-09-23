@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{451:function(e,n,t){"use strict";t.r(n);var a=t(0),c=t.n(a),u=t(80),r=t(160),l=t(81),o=function(e){var n=e.goto;return Object(a.useEffect)((function(){Object(r.f)(),Object(u.navigate)(n||l.a)})),c.a.createElement(c.a.Fragment,null,c.a.createElement("h5",null,"Logging out..."))};n.default=function(){return c.a.createElement(c.a.Fragment,null,c.a.createElement(o,null))}}}]);
-//# sourceMappingURL=component---src-pages-auth-signout-jsx-d8bbc2366db978b0d26c.js.map
