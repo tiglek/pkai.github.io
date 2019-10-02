@@ -27,26 +27,26 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-13eba9ce43830fde3bee.js"
+    "url": "webpack-runtime-1e461d3f75716f5ddc0a.js"
   },
   {
-    "url": "styles.6e498cad45fcbcd8f56f.css"
+    "url": "styles.d12b78930e0f1ae5ffff.css"
   },
   {
-    "url": "styles-fd7b07b4a22b9ea4a1b0.js"
+    "url": "styles-34151fee71acab50d3e4.js"
   },
   {
-    "url": "commons-f79ccb2ce3f09fc5271e.js"
+    "url": "commons-a0e813e128183072c4f9.js"
   },
   {
-    "url": "app-e38822e0bbae5d064638.js"
+    "url": "app-b818d5d3b16a7c0d8373.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-d9e8b996c394c37e323a.js"
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-c7f1d6efff7affc8771d.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "37c8d557597502a7d048c2b6586ca6cd"
+    "revision": "9f60ab5eb0cd2aebd3e274538343a092"
   },
   {
     "url": "static/webfonts/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2"
@@ -59,7 +59,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "586c20a676f590a8c474f1e0efec7ff6"
+    "revision": "5e0f6a8e587b2d752d018e6eab4d8c13"
   },
   {
     "url": "manifest.webmanifest",
@@ -86,7 +86,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/nitroweb/app-e38822e0bbae5d064638.js`))) {
+  if (!resources || !(await caches.match(`/nitroweb/app-b818d5d3b16a7c0d8373.js`))) {
     return await fetch(event.request)
   }
 
