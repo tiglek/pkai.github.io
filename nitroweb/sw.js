@@ -33,20 +33,20 @@ self.__precacheManifest = [
     "url": "styles.6e498cad45fcbcd8f56f.css"
   },
   {
-    "url": "styles-a16d74da4dccf4a8a539.js"
+    "url": "styles-aa45fbbcba3957b170b6.js"
   },
   {
     "url": "commons-f79ccb2ce3f09fc5271e.js"
   },
   {
-    "url": "app-afab9681b55d2738f389.js"
+    "url": "app-6977344e2cbb551987ff.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-d9e8b996c394c37e323a.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "749013efdee056f9c5e079e5f612d322"
+    "revision": "1964b75b22f302e087c3616df3357a80"
   },
   {
     "url": "static/webfonts/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2"
@@ -59,11 +59,11 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "e92e0bc3189c61995ee70eb6cc73e787"
+    "revision": "f6828fecaa455bfa389170973a8e36fd"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "e65c1f37d9c13415ef930a9e03760980"
+    "revision": "c2b8b311c8aef8cb741c2404c4317325"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
@@ -86,7 +86,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/nitroweb/app-afab9681b55d2738f389.js`))) {
+  if (!resources || !(await caches.match(`/nitroweb/app-6977344e2cbb551987ff.js`))) {
     return await fetch(event.request)
   }
 
