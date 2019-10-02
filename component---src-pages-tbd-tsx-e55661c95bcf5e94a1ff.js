@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[14],{493:function(e,t,n){"use strict";n.r(t);var a=n(0),c=n.n(a),l=n(218),r=n(219),u=n(217),o=Object(u.b)("Others")((function(e){e.t;var t=e.title;return c.a.createElement(c.a.Fragment,null,c.a.createElement("h1",null," TBD "),c.a.createElement("p",null," ",t," "))}));t.default=Object(r.c)((function(e){var t=e.location;return c.a.createElement(l.c,{location:t},c.a.createElement(o,null))}))}}]);
-//# sourceMappingURL=component---src-pages-tbd-tsx-e55661c95bcf5e94a1ff.js.map
