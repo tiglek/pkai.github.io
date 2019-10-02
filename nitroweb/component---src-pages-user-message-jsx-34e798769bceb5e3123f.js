@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[18],{496:function(e,n,t){"use strict";t.r(n);var a=t(0),r=t.n(a),c=t(218),u=t(219),l=t(217),s=Object(l.b)("Others")((function(e){e.t;return r.a.createElement(r.a.Fragment,null,r.a.createElement("h1",null,"Your messages here..."))}));n.default=Object(u.c)((function(e){return r.a.createElement(c.c,e,r.a.createElement(s,null))}))}}]);
+//# sourceMappingURL=component---src-pages-user-message-jsx-34e798769bceb5e3123f.js.map
