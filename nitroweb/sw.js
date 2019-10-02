@@ -33,20 +33,20 @@ self.__precacheManifest = [
     "url": "styles.6e498cad45fcbcd8f56f.css"
   },
   {
-    "url": "styles-aa45fbbcba3957b170b6.js"
+    "url": "styles-fd7b07b4a22b9ea4a1b0.js"
   },
   {
     "url": "commons-f79ccb2ce3f09fc5271e.js"
   },
   {
-    "url": "app-6977344e2cbb551987ff.js"
+    "url": "app-e38822e0bbae5d064638.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-d9e8b996c394c37e323a.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "1964b75b22f302e087c3616df3357a80"
+    "revision": "37c8d557597502a7d048c2b6586ca6cd"
   },
   {
     "url": "static/webfonts/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2"
@@ -59,7 +59,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "f6828fecaa455bfa389170973a8e36fd"
+    "revision": "586c20a676f590a8c474f1e0efec7ff6"
   },
   {
     "url": "manifest.webmanifest",
@@ -86,7 +86,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/nitroweb/app-6977344e2cbb551987ff.js`))) {
+  if (!resources || !(await caches.match(`/nitroweb/app-e38822e0bbae5d064638.js`))) {
     return await fetch(event.request)
   }
 
