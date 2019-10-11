@@ -27,26 +27,26 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-a70741c280425d101c07.js"
+    "url": "webpack-runtime-6a1e0a20da4e3fa4b809.js"
   },
   {
-    "url": "styles.d12b78930e0f1ae5ffff.css"
+    "url": "styles.0ebb354c88cc59de4135.css"
   },
   {
-    "url": "styles-66c9b494389aa4f6da76.js"
+    "url": "styles-aa31b89a481412315e3b.js"
   },
   {
-    "url": "commons-2ea1f819246c3da329d1.js"
+    "url": "commons-d94c96d919f0e68115b2.js"
   },
   {
-    "url": "app-698a99c7cf1f737cc2cc.js"
+    "url": "app-038f02751c198c02451d.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-3f7942d34addc03bbdad.js"
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-7413128e476d98c881f7.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "501c3d7206d77ce79802556687202ccc"
+    "revision": "9c714bec3176d96cd895973dd52cf36b"
   },
   {
     "url": "static/webfonts/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2"
@@ -59,7 +59,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "c5cae29854f620b5ec8f0588a4fcf6de"
+    "revision": "3e5d912bc8d68db3c969c8f1255488fc"
   },
   {
     "url": "manifest.webmanifest",
@@ -78,15 +78,20 @@ workbox.routing.registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, new wor
 importScripts(`idb-keyval-iife.min.js`)
 
 const { NavigationRoute } = workbox.routing
+let offlineShellEnabled = true
 
 const navigationRoute = new NavigationRoute(async ({ event }) => {
+  if (!offlineShellEnabled) {
+    return await fetch(event.request)
+  }
+
   let { pathname } = new URL(event.request.url)
   pathname = pathname.replace(new RegExp(`^/nitroweb`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/nitroweb/app-698a99c7cf1f737cc2cc.js`))) {
+  if (!resources || !(await caches.match(`/nitroweb/app-038f02751c198c02451d.js`))) {
     return await fetch(event.request)
   }
 
@@ -106,17 +111,35 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
 
 workbox.routing.registerRoute(navigationRoute)
 
-const messageApi = {
-  setPathResources(event, { path, resources }) {
+// prefer standard object syntax to support more browsers
+const MessageAPI = {
+  setPathResources: (event, { path, resources }) => {
     event.waitUntil(idbKeyval.set(`resources:${path}`, resources))
   },
 
-  clearPathResources(event) {
+  clearPathResources: event => {
     event.waitUntil(idbKeyval.clear())
+  },
+
+  enableOfflineShell: () => {
+    offlineShellEnabled = true
+  },
+
+  disableOfflineShell: () => {
+    offlineShellEnabled = false
   },
 }
 
 self.addEventListener(`message`, event => {
-  const { gatsbyApi } = event.data
-  if (gatsbyApi) messageApi[gatsbyApi](event, event.data)
+  const { gatsbyApi: api } = event.data
+  if (api) MessageAPI[api](event, event.data)
+})
+
+workbox.routing.registerRoute(/\/.gatsby-plugin-offline:.+/, ({ event }) => {
+  const { pathname } = new URL(event.request.url)
+
+  const api = pathname.match(/:(.+)/)[1]
+  MessageAPI[api]()
+
+  return new Response()
 })
